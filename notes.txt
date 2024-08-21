@@ -40,9 +40,10 @@ Luigi@Luisito2178 MINGW64 ~/Desktop/LearnGit (main)
 $ git status
 On branch main
 nothing to commit, working tree clean
-///////////////////////
+
+
 Luigi@Luisito2178 MINGW64 ~/Desktop/LearnGit (main)
-$ git log 
+$ git log // funciona para poder listar los cambios que han sucedido en la rama
 commit a25c5a14ec2d55184e938dfd4dc3ef08dad27b94 (HEAD -> main)
 Author: Luisito2178Git <luis.apd2178@gmail.com>
 Date:   Wed Aug 21 09:50:53 2024 -0600
@@ -57,3 +58,31 @@ Date:   Wed Aug 21 09:47:10 2024 -0600
 
 Luigi@Luisito2178 MINGW64 ~/Desktop/LearnGit (main)
 $ git mv learn.txt notes.txt // Cambiar el nombre de un archivo 
+
+
+Luigi@Luisito2178 MINGW64 ~/Desktop/LearnGit (main)
+$ git branch -M name //  Esto es para cambiar el nombre de la rama main
+
+Luigi@Luisito2178 MINGW64 ~/Desktop/LearnGit (main)
+$ git branch firstexample // Crea una rama en el git pero no te manda a la rama seguimos en main
+
+Luigi@Luisito2178 MINGW64 ~/Desktop/LearnGit (main)
+$ git chekout firstexample // Error de capa 8 ya que escribi mal checkout
+git: 'chekout' is not a git command. See 'git --help'.
+
+The most similar command is
+        checkout
+
+Luigi@Luisito2178 MINGW64 ~/Desktop/LearnGit (main)
+$ git checkout firstexample
+Switched to branch 'firstexample'// Aquí marca que se cambio la rama 
+
+Luigi@Luisito2178 MINGW64 ~/Desktop/LearnGit (firstexample) // Ahora en los paréntesis se ve que cambiamos la rama
+$
+
+
+
+
+
+
+
