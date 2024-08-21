@@ -100,3 +100,10 @@ nothing to commit, working tree clean
 Luigi@Luisito2178 MINGW64 ~/Desktop/LearnGit (firstexample)
 $ git branch -m "Luis-changes" // Con esto se cambia el nombre de la rama actual
 
+-----
+Luigi@Luisito2178 MINGW64 ~/Desktop/LearnGit (Luis-changes)
+$ vi name.txt //visualizar un archivo
+
+----
+
+
