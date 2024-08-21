@@ -1,0 +1,59 @@
+Luigi@Luisito2178 MINGW64 ~/Desktop/LearnGit (main)
+$ touch "Git Commands.txt" // crear archivo con espacios 
+
+git status // Para trackear que pasa con los documentos
+
+Luigi@Luisito2178 MINGW64 ~/Desktop/LearnGit (main)
+$ git status
+On branch main
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        learn.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+$  git add  . // agregar cualquier archivo o en lugar de " . " poner el nombre del archivo
+
+Luigi@Luisito2178 MINGW64 ~/Desktop/LearnGit (main)
+$  git add learn.txt
+
+Luigi@Luisito2178 MINGW64 ~/Desktop/LearnGit (main)
+$ git status
+On branch main
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   learn.txt
+
+Luigi@Luisito2178 MINGW64 ~/Desktop/LearnGit (main)
+$ git commit -m "learn file added"
+[main (root-commit) fff4168] learn file added
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 learn.txt
+
+Luigi@Luisito2178 MINGW64 ~/Desktop/LearnGit (main)
+$ git status
+On branch main
+nothing to commit, working tree clean
+///////////////////////
+Luigi@Luisito2178 MINGW64 ~/Desktop/LearnGit (main)
+$ git log 
+commit a25c5a14ec2d55184e938dfd4dc3ef08dad27b94 (HEAD -> main)
+Author: Luisito2178Git <luis.apd2178@gmail.com>
+Date:   Wed Aug 21 09:50:53 2024 -0600
+
+    extra file added
+
+commit fff41686af3e26488568484a5e43c4cd15aae83b
+Author: Luisito2178Git <luis.apd2178@gmail.com>
+Date:   Wed Aug 21 09:47:10 2024 -0600
+
+    learn file added
+
+Luigi@Luisito2178 MINGW64 ~/Desktop/LearnGit (main)
+$ git mv learn.txt notes.txt // Cambiar el nombre de un archivo 

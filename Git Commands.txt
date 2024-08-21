@@ -1,0 +1,82 @@
+Git Commands
+Important Git Commands
+
+Initializing a Repository
+
+
+
+git init: Initializes a new Git repository locally.
+
+
+
+Tracking Changes
+
+
+
+git status: Shows the status of changes in the working directory.
+
+git add <file>: Adds changes in a file to the staging area.
+
+git commit -m "message": Commits staged changes with a descriptive message.
+
+Viewing History
+
+
+
+git log: Displays a history of commits.
+
+git log --oneline: Condensed view of commit history.
+
+
+
+Working with Branches
+
+
+
+git branch: Lists all branches in the repository.
+
+git branch <branch-name>: Creates a new branch.
+
+git checkout <branch-name>: Switches to a different branch.
+
+
+
+Merging Changes
+
+
+
+git merge <branch-name>: Merges changes from one branch into another.
+
+git merge --abort: Aborts a merge in progress.
+
+
+
+Collaboration Basics
+
+
+
+git remote add origin <repository URL>: Connects a local repository to a remote repository.
+
+git push -u origin <branch-name>: Pushes changes to a remote repository.
+
+git pull: Fetches changes from a remote repository and merges them into the local branch.
+
+
+
+Undoing Changes
+
+
+
+git reset HEAD <file>: Unstages changes from the staging area.
+
+git checkout -- <file>: Discards changes in a file.
+
+
+
+Repository Management
+
+
+
+git clone <repository URL>: Clones a repository from a remote URL.
+
+git remote -v: Lists remote repositories associated with the local repository.
