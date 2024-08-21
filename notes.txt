@@ -61,7 +61,7 @@ $ git mv learn.txt notes.txt // Cambiar el nombre de un archivo
 
 
 Luigi@Luisito2178 MINGW64 ~/Desktop/LearnGit (main)
-$ git branch -M name //  Esto es para cambiar el nombre de la rama main
+$ git branch -M name //  Esto es para cambiar el nombre de la rama 
 
 Luigi@Luisito2178 MINGW64 ~/Desktop/LearnGit (main)
 $ git branch firstexample // Crea una rama en el git pero no te manda a la rama seguimos en main
@@ -80,9 +80,23 @@ Switched to branch 'firstexample'// Aquí marca que se cambio la rama
 Luigi@Luisito2178 MINGW64 ~/Desktop/LearnGit (firstexample) // Ahora en los paréntesis se ve que cambiamos la rama
 $
 
+------------
+Luigi@Luisito2178 MINGW64 ~/Desktop/LearnGit (firstexample)
+$ git add .
 
+Luigi@Luisito2178 MINGW64 ~/Desktop/LearnGit (firstexample)
+$ git commit -m "changes in notes.txt and added firstbranch.txt"
+[firstexample 8e41ef3] changes in notes.txt and added firstbranch.txt
+ 2 files changed, 31 insertions(+), 2 deletions(-)
+ create mode 100644 firstbranch.txt
 
+Luigi@Luisito2178 MINGW64 ~/Desktop/LearnGit (firstexample)
+$ git status
+On branch firstexample
+nothing to commit, working tree clean
 
+------
 
-
+Luigi@Luisito2178 MINGW64 ~/Desktop/LearnGit (firstexample)
+$ git branch -m "Luis-changes" // Con esto se cambia el nombre de la rama actual
 
