@@ -138,3 +138,151 @@ $ git branch // Te da la lista de las ramas creadas y te marca donde esta la cab
 * Luis-changes
   main
 
+-------------------------
+// Para hacer un merge tenemos que ir a la rama a la que queremos añadir los cambios y hacer el siguiente comando
+Luigi@Luisito2178 MINGW64 ~/Desktop/LearnGit (Luis-changes) 
+$ git checkout main // Cambiamos a la rama a la que le agregaremos los cambios
+Switched to branch 'main'
+
+Luigi@Luisito2178 MINGW64 ~/Desktop/LearnGit (main)
+$ git branch
+  Luis-changes
+* main // confirmamos que estamos aquí
+
+Luigi@Luisito2178 MINGW64 ~/Desktop/LearnGit (main)
+$ git merge Luis-changes // git merge namebranch ahora con esto añadimos los cambios de la rama Luis-changes
+Updating da817b4..10da97e
+Fast-forward
+ firstbranch.txt |  0
+ notes.txt       | 85 +++++++++++++++++++++++++++++++++++++++++++++++++++++++--
+ 2 files changed, 83 insertions(+), 2 deletions(-) // informacion acerca de los cambios añadidos 
+ create mode 100644 firstbranch.txt
+
+------------------
+// reset en git en este caso tenemos que regresar a un commit anterior por que hicimos uno nuevo por accidente o nos hizo falta escribir mas codigo y se envió a medias
+
+// Se crea una nueva rama en la cual se agrega un archivo y se agrega datos 2 veces en el archivo 
+Luigi@Luisito2178 MINGW64 ~/Desktop/LearnGit (new)
+$ git log // tenemos que ver los ID de los commit para poder resetear  
+commit bb36a374f8a32b292e881a80c5fafb050e83eb84 (HEAD -> new)
+Author: Luisito2178Git <luis.apd2178@gmail.com>
+Date:   Wed Aug 21 14:27:43 2024 -0600
+
+    2nd data in new file
+
+commit 4a00211ef6d5360b2e00bddd8e6f3d19a2b63842 // tenemos que copiar el ID del commit al que queremos regresar
+Author: Luisito2178Git <luis.apd2178@gmail.com>
+Date:   Wed Aug 21 14:25:54 2024 -0600
+
+    data in new file
+
+commit fa1f86b2388e8c26ed32779c4cb9c1e35e4ae8de
+Author: Luisito2178Git <luis.apd2178@gmail.com>
+Date:   Wed Aug 21 14:23:18 2024 -0600
+
+    new file added
+
+commit 10da97e415aced851845a9037511ec3f9bb98cec (main, Luis-changes)
+Author: Luisito2178Git <luis.apd2178@gmail.com>
+Date:   Wed Aug 21 13:50:50 2024 -0600
+
+    Add more information on notes
+
+Luigi@Luisito2178 MINGW64 ~/Desktop/LearnGit (new)
+$ git reset 4a00211ef6d5360b2e00bddd8e6f3d19a2b63842 // regresemos al antiguo commit
+Unstaged changes after reset:
+M       new.txt
+
+Luigi@Luisito2178 MINGW64 ~/Desktop/LearnGit (new)
+$ git status  
+On branch new
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   new.txt // Regresamos al anterior commit pero conservamos la informacion que tenia el 2nd commit
+
+no changes added to commit (use "git add" and/or "git commit -a")
+ 
+Luigi@Luisito2178 MINGW64 ~/Desktop/LearnGit (new) // como podemos ver acaba de desaparecer el commit de 2nd data in new file peor seguimos conservando su informacion
+$ git log
+commit 4a00211ef6d5360b2e00bddd8e6f3d19a2b63842 (HEAD -> new)
+Author: Luisito2178Git <luis.apd2178@gmail.com>
+Date:   Wed Aug 21 14:25:54 2024 -0600
+
+    data in new file
+
+commit fa1f86b2388e8c26ed32779c4cb9c1e35e4ae8de
+Author: Luisito2178Git <luis.apd2178@gmail.com>
+Date:   Wed Aug 21 14:23:18 2024 -0600
+
+    new file added
+
+commit 10da97e415aced851845a9037511ec3f9bb98cec (main, Luis-changes)
+Author: Luisito2178Git <luis.apd2178@gmail.com>
+Date:   Wed Aug 21 13:50:50 2024 -0600
+
+    Add more information on notes
+
+
+// Si lo que queremos es eliminar el commit completamente y no conservar la informacion que tenia entonces tenemos que usar el siguiente comando
+
+Luigi@Luisito2178 MINGW64 ~/Desktop/LearnGit (new)
+$ git reset 10da97e415aced851845a9037511ec3f9bb98cec  --hard // git reset <commitID> (--hard usalo adecuadamente)
+HEAD is now at 10da97e Add more information on notes // Se elimina toda la informacion que se tenia despues del commit que agregamos 
+
+Luigi@Luisito2178 MINGW64 ~/Desktop/LearnGit (new)
+$ git log
+commit 10da97e415aced851845a9037511ec3f9bb98cec (HEAD -> new, main, Luis-changes) // en mi caso borre todo lo que hizo new branch 
+Author: Luisito2178Git <luis.apd2178@gmail.com>
+Date:   Wed Aug 21 13:50:50 2024 -0600
+
+    Add more information on notes
+// git reset and git restore pueden hacer lo mismo
+
+-------------------
+// la forma de usar git ignore
+Luigi@Luisito2178 MINGW64 ~/Desktop/LearnGit (main) // creamos una nueva rama
+$ git branch ignore
+
+Luigi@Luisito2178 MINGW64 ~/Desktop/LearnGit (main)
+$ git checkout ignore // La rama para este ejemplo se llama ignore
+Switched to branch 'ignore'
+
+Luigi@Luisito2178 MINGW64 ~/Desktop/LearnGit (ignore)
+$ touch a b // creamos 2 archivos que vamos a ignorar
+
+Luigi@Luisito2178 MINGW64 ~/Desktop/LearnGit (ignore)
+$ mkdir keyExample // Tambien creamos una carpeta para ignorar
+
+Luigi@Luisito2178 MINGW64 ~/Desktop/LearnGit (ignore)
+$ cd keyExample/ // entramos a otra carpeta
+
+Luigi@Luisito2178 MINGW64 ~/Desktop/LearnGit/keyExample (ignore)
+$ touch key1 // Creamos un nuevo archivo dentro de la capeta
+
+Luigi@Luisito2178 MINGW64 ~/Desktop/LearnGit/keyExample (ignore)
+$ cd .. // Salimos de la carpeta
+
+Luigi@Luisito2178 MINGW64 ~/Desktop/LearnGit (ignore)
+$ touch .gitignore // Creamos el archivo gitignore
+
+// Dentro del archivo .gitignore agregamos los archivos que se van ignorar al momento de hacer un commit
+keyExample/
+a
+
+Luigi@Luisito2178 MINGW64 ~/Desktop/LearnGit (ignore)
+$ git status
+On branch ignore
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .gitignore // Podemos ver que solo aparece .gitignore y b ya que en el documento solo puse la nueva carpeta y el archivo a 
+        b
+
+
+
+EXTRA NOTE:
+git mv OLD-FILENAME NEW-FILENAME to change a file name
+git switch -c nameBranch // Creamos una nueva rama y cambiamos el head hacia ella sin necesidad de hacer un checkout despues 
+ 
+
+
