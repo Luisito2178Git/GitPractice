@@ -106,4 +106,35 @@ $ vi name.txt //visualizar un archivo
 
 ----
 
+Luigi@Luisito2178 MINGW64 ~/Desktop/LearnGit (Luis-changes)
+$ vi name.txt //editar un archivo 
+-----
+Luigi@Luisito2178 MINGW64 ~/Desktop/LearnGit (Luis-changes)
+$ cat name.txt //visualizar un archivo cat
+The cat command in Linux is used to concatenate and display files. It can be used for the following purposes:
+
+Displaying the contents of a file: When you run cat filename, the contents of the specified file will be displayed in the terminal.
+Combining multiple files: You can use cat file1.txt file2.txt file3.txt to display the contents of multiple files one after the other.
+Creating simple text files: If you run cat &gt; filename.txt, you can start typing text and press Ctrl+D to save the content to the file.
+Appending data to files: The cat command can be used to append data to the end of a file using the &gt;&gt; operator, e.g., cat &gt;&gt; filename.txt.
+Generating temporary data: You can use cat &lt;&lt;EOF to type in multi-line text and press Ctrl+D to end the input, which can then be used as input for other commands.
+
+Mas información para cat 
+
+----
+
+// Para eliminar una branch necesitamos estar en otra branch ejemplo de eliminar Luis-changes
+
+Luigi@Luisito2178 MINGW64 ~/Desktop/LearnGit (Luis-changes)
+$ git checkout main
+Switched to branch 'main'
+
+Luigi@Luisito2178 MINGW64 ~/Desktop/LearnGit (main)
+$ git checkout -d Luis-changes
+
+-----
+Luigi@Luisito2178 MINGW64 ~/Desktop/LearnGit (Luis-changes)
+$ git branch // Te da la lista de las ramas creadas y te marca donde esta la cabeza (head)
+* Luis-changes
+  main
 
