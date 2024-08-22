@@ -278,11 +278,63 @@ Untracked files:
         .gitignore // Podemos ver que solo aparece .gitignore y b ya que en el documento solo puse la nueva carpeta y el archivo a 
         b
 
+-----
+// Tenemos que hacer un git add . antes de usar stash
+ Luigi@Luisito2178 MINGW64 ~/Desktop/LearnGit (ignore) // Listamos los cambios ocultos 
+$ git stash list 
+stash@{0}: WIP on ignore: 10da97e Add more information on notes // se ve en que branch esta en este caso "ignore"
 
+Luigi@Luisito2178 MINGW64 ~/Desktop/LearnGit (ignore)
+$ git stash pop // Podemos regresar todos los archivos en stash y limpia el stash
+On branch ignore
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   .gitignore
+        new file:   b
+
+Dropped refs/stash@{0} (a06870ea7f23de2f0eca5b251a898ac707c31fca)
+
+Luigi@Luisito2178 MINGW64 ~/Desktop/LearnGit (ignore)
+$ git stash pop stash@{0} // esto es el id de la lista en stash y en vez de regresar todos los archivos en stash solo regresan los que están listados ahi 
+
+// Como copiar desde stash y mantener el archivo en stash
+Luigi@Luisito2178 MINGW64 ~/Desktop/LearnGit (ignore)
+$ git stash apply // copia todos los archivos en stash y los mantiene ahi también podemos usar un id para solo copiar archivos en especifico
+
+// limpiar stash
+Luigi@Luisito2178 MINGW64 ~/Desktop/LearnGit (ignore)
+$ git stash clear // limpia (quitar todos los archivos de stash)
+
+-----
+git clone <githublink> // clone a repository grom github
+
+git init
+git add <.> <filename>
+git commit
+git push origin <branch>
+git pull <GitHubLink>
+
+
+
+EXTRA:
+// cambiar el repositorio si algo salio mal con el link
+Malo:
+
+$ git remote remove origin
+$ git remote add origin2 https://gitlab.com/otro_usuario/otro_repositorio.git
+Bueno:
+
+$ git remote remove origin
+$ git remote add origin https://gitlab.com/otro_usuario/otro_repositorio.git
+Muy Bueno:
+
+git remote set-url origin https://gitlab.com/otro_usuario/otro_repositorio.git
+Por archivos: Puedes entrar a la ruta ".git/config " y editar la url
 
 EXTRA NOTE:
 git mv OLD-FILENAME NEW-FILENAME to change a file name
 git switch -c nameBranch // Creamos una nueva rama y cambiamos el head hacia ella sin necesidad de hacer un checkout despues 
  
+
 
 
